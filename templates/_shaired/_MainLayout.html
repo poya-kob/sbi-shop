@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    {% include '_shaired/_HeaderRefrences.html' %}
+</head>
+<body class="rtl">
+<div class="preloader_wrapper">
+    <div class="preloader_inner">
+        <img src="images/preloader.gif" alt="image"/>
+    </div>
+</div>
+<div class="clv_main_wrapper index_v1">
+    {% include '_shaired/header.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% include '_shaired/_FooterRefrences.html' %}
+    {% include '_shaired/footer.html' %}
+</div>
+</body>
+</html>
