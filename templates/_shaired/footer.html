@@ -1,10 +1,11 @@
+{% load static %}
 <!--Footer-->
 <div class="clv_footer_wrapper clv_section">
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-lg-3">
                 <div class="footer_block">
-                    <div class="footer_logo"><a href="javascript:;"><img src="images/footer_logo.png"
+                    <div class="footer_logo"><a href="javascript:;"><img src="{% static 'images/footer_logo.png' %}"
                                                                          alt="image"/></a></div>
                     <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
                         است. چاپگرها</p>
@@ -16,7 +17,7 @@
                 <div class="footer_block">
                     <div class="footer_heading">
                         <h4>خدمات</h4>
-                        <img src="images/footer_underline.png" alt="image"/>
+                        <img src="{% static 'images/footer_underline.png' %}" alt="image"/>
                     </div>
                     <ul class="useful_links">
                         <li><a href="javascript:;"><span><i class="fa fa-angle-left"
@@ -39,20 +40,20 @@
                 <div class="footer_block">
                     <div class="footer_heading">
                         <h4>اینستاگرام</h4>
-                        <img src="images/footer_underline.png" alt="image"/>
+                        <img src="{% static 'images/footer_underline.png' %}" alt="image"/>
                     </div>
                     <ul class="instagram_links">
-                        <li><a href="javascript:;"><img src="images/insta1.jpg"
+                        <li><a href="javascript:;"><img src="{% static 'images/insta1.jpg' %}"
                                                         alt="image"/></a></li>
-                        <li><a href="javascript:;"><img src="images/insta2.jpg"
+                        <li><a href="javascript:;"><img src="{% static 'images/insta2.jpg' %}"
                                                         alt="image"/></a></li>
-                        <li><a href="javascript:;"><img src="images/insta3.jpg"
+                        <li><a href="javascript:;"><img src="{% static 'images/insta3.jpg' %}"
                                                         alt="image"/></a></li>
-                        <li><a href="javascript:;"><img src="images/insta4.jpg"
+                        <li><a href="javascript:;"><img src="{% static 'images/insta4.jpg' %}"
                                                         alt="image"/></a></li>
-                        <li><a href="javascript:;"><img src="images/insta5.jpg"
+                        <li><a href="javascript:;"><img src="{% static 'images/insta5.jpg' %}"
                                                         alt="image"/></a></li>
-                        <li><a href="javascript:;"><img src="images/insta6.jpg"
+                        <li><a href="javascript:;"><img src="{% static 'images/insta6.jpg' %}"
                                                         alt="image"/></a></li>
                     </ul>
                 </div>
@@ -61,7 +62,7 @@
                 <div class="footer_block">
                     <div class="footer_heading">
                         <h4>پشتیبانی</h4>
-                        <img src="images/footer_underline.png" alt="image"/>
+                        <img src="{% static 'images/footer_underline.png' %}" alt="image"/>
                     </div>
                     <ul class="useful_links">
                         <li><a href="javascript:;"><span><i class="fa fa-angle-left"
@@ -113,9 +114,9 @@
 <!--Payment Success Popup-->
 <div class="success_wrapper">
     <div class="success_inner">
-        <div class="success_img"><img src="images/success.png" alt=""></div>
+        <div class="success_img"><img src="{% static 'images/success.png' %}" alt=""></div>
         <h3>موفقیت پرداخت</h3>
-        <img src="images/clv_underline.png" alt="">
+        <img src="{% static 'images/clv_underline.png' %}" alt="">
         <p>سفارش شما با موفقیت انجام شد! می توانید هرگونه سؤالی دارید مستقیما از صاحب فروشگاه بپرسید. از خرید شما
             متشکریم</p>
         <a href="javascript:;" class="clv_btn">ادامه گشت وگذار</a>
@@ -137,7 +138,7 @@
 <!--Thank You Popup-->
 <div class="thankyou_wrapper">
     <div class="thankyou_inner">
-        <div class="thankyou_img"><img src="images/thankyou.png" alt=""></div>
+        <div class="thankyou_img"><img src="{% static 'images/thankyou.png' %}" alt=""></div>
         <h3>سفارش شما در حال پردازش است</h3>
         <h5>برای شما یک ایمیل حاوی اطلاعات کاملی درباره رزروتان ارسال کرده ایم.</h5>
         <div class="download_button">
@@ -164,7 +165,7 @@
     <div class="signup_inner">
         <div class="signup_details">
             <div class="site_logo">
-                <a href="index.html"> <img src="images/logo_white.png" alt="image"></a>
+                <a href="index.html"> <img src="{% static 'images/logo_white.png' %}" alt="image"></a>
             </div>
             <h3>به cultivation خوش آمدید!</h3>
             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
@@ -183,7 +184,7 @@
         </div>
         <div class="signup_form_section">
             <h4>ساخت حساب</h4>
-            <img src="images/clv_underline.png" alt="image">
+            <img src="{% static 'images/clv_underline.png' %}" alt="image">
             <div class="form_block">
                 <input type="text" class="form_field" placeholder="نام">
             </div>
@@ -196,11 +197,11 @@
             <a href="javascript:;" class="clv_btn">عضویت</a>
             <div class="social_button_section">
                 <a href="javascript:;" class="fb_btn">
-                    <span><img src="images/fb.png" alt="image"></span>
+                    <span><img src="{% static 'images/fb.png' %}" alt="image"></span>
                     <span>facebook</span>
                 </a>
                 <a href="javascript:;" class="google_btn">
-                    <span><img src="images/google.png" alt="image"></span>
+                    <span><img src="{% static 'images/google.png' %}" alt="image"></span>
                     <span>google+</span>
                 </a>
             </div>
@@ -226,7 +227,7 @@
     <div class="signup_inner">
         <div class="signup_details">
             <div class="site_logo">
-                <a href="index.html"> <img src="images/logo_white.png" alt="image"></a>
+                <a href="index.html"> <img src="{% static 'images/logo_white.png' %}" alt="image"></a>
             </div>
             <h3>به cultivation خوش آمدید!</h3>
             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و
@@ -245,7 +246,7 @@
         </div>
         <div class="signup_form_section">
             <h4>ورود به حساب</h4>
-            <img src="images/clv_underline.png" alt="image">
+            <img src="{% static 'images/clv_underline.png' %}" alt="image">
             <div class="form_block">
                 <input type="text" class="form_field" placeholder="ایمیل">
             </div>
@@ -255,11 +256,11 @@
             <a href="javascript:;" class="clv_btn">عضویت</a>
             <div class="social_button_section">
                 <a href="javascript:;" class="fb_btn">
-                    <span><img src="images/fb.png" alt="image"></span>
+                    <span><img src="{% static 'images/fb.png' %}" alt="image"></span>
                     <span>facebook</span>
                 </a>
                 <a href="javascript:;" class="google_btn">
-                    <span><img src="images/google.png" alt="image"></span>
+                    <span><img src="{% static 'images/google.png' %}" alt="image"></span>
                     <span>google+</span>
                 </a>
             </div>
@@ -281,4 +282,4 @@
     </div>
 </div>
 <!--Profile Toggle-->
-<div class="profile_toggle"><a href="javascript:;"><img src="images/login.gif" alt=""></a></div>
+<div class="profile_toggle"><a href="javascript:;"><img src="{% static 'images/login.gif' %}" alt=""></a></div>
