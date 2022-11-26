@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     # my app
     "blog",
     'contact_us',
-    'account',
     'categories'
 ]
 

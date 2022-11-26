@@ -14,4 +14,4 @@ class Categories(mp.MPTTModel):
 
     class MPTTMeta:
         level_attr = 'mptt_level'
-        order_insertion_by = ['title']
+        order_insertion_by = ['created_time', 'title']
