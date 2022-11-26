@@ -44,7 +44,9 @@ INSTALLED_APPS = [
 
     # my app
     "blog",
-    'contact_us'
+    'contact_us',
+    'account',
+    'categories'
 ]
 
 CKEDITOR_UPLOAD_PATH = "ckeditor_uploads"
