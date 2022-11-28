@@ -1,0 +1,289 @@
+{% extends '_shaired/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+    <!--Blog With Sidebar-->
+    <div class="blog_sidebar_wrapper clv_section blog_single_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="blog_left_section">
+                        <div class="blog_section">
+                            <div class="agri_blog_image">
+                                <img src="{{ blog.image.url }}" alt="image">
+                                <span class="agri_blog_date">{{ blog.modified_date.date }}</span>
+                            </div>
+                            <div class="agri_blog_content">
+                                <h3>{{ blog.title }}</h3>
+                                <div class="blog_user">
+                                    <div class="user_name">
+                                        <img src="{% static 'images/user.png' %}" alt="image">
+                                        <a href="javascript:;"><span>{{ blog.user }}</span></a>
+                                    </div>
+                                    <div class="comment_block">
+                                        <span><i class="fa fa-comments-o" aria-hidden="true"></i></span>
+                                        <a href="javascript:;">26 نظر</a>
+                                    </div>
+                                </div>
+                                <p>{{ blog.body|safe }}</p>
+                                <br>
+                                <br>
+                                <br>
+
+                            </div>
+
+                            <div class="blog_single_heading">
+                                <h3>نظرات <span>(03)</span></h3>
+                                <img src="{% static 'images/footer_underline.png' %}" alt="image">
+                            </div>
+                            <div class="comment_section">
+                                <ul>
+                                    <li>
+                                        <div class="comment_box">
+                                            <div class="comment_image">
+                                                <img src="images/comment1.jpg" alt="image">
+                                            </div>
+                                            <div class="comment_text">
+                                                <div class="comment_header">
+                                                    <div class="comment_name">
+                                                        <h5>علی عمادزاده</h5>
+                                                        <span>9 تیر 1398</span>
+                                                        <span>08:20am</span>
+                                                    </div>
+                                                    <a href="javascript:;">پاسخ</a>
+                                                </div>
+                                                <p>کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان
+                                                    جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را
+                                                    برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در
+                                                    زبان فارسی ایجاد کرد. </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="comment_box">
+                                            <div class="comment_image">
+                                                <img src="images/comment2.jpg" alt="image">
+                                            </div>
+                                            <div class="comment_text">
+                                                <div class="comment_header">
+                                                    <div class="comment_name">
+                                                        <h5>علی عمادزاده</h5>
+                                                        <span>9 تیر 1398</span>
+                                                        <span>08:20am</span>
+                                                    </div>
+                                                    <a href="javascript:;">پاسخ</a>
+                                                </div>
+                                                <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
+                                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با
+                                                    هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه
+                                                    درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
+                                                    تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
+                                                    الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li>
+                                                <div class="comment_box">
+                                                    <div class="comment_image">
+                                                        <img src="images/comment3.jpg" alt="image">
+                                                    </div>
+                                                    <div class="comment_text">
+                                                        <div class="comment_header">
+                                                            <div class="comment_name">
+                                                                <h5>علی عمادزاده</h5>
+                                                                <span>9 تیر 1398</span>
+                                                                <span>08:20am</span>
+                                                            </div>
+                                                            <a href="javascript:;">پاسخ</a>
+                                                        </div>
+                                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                                                            و با استفاده از طراحان گرافیک است. </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="comment_box">
+                                            <div class="comment_image">
+                                                <img src="images/comment4.jpg" alt="image">
+                                            </div>
+                                            <div class="comment_text">
+                                                <div class="comment_header">
+                                                    <div class="comment_name">
+                                                        <h5>علی عمادزاده</h5>
+                                                        <span>9 تیر 1398</span>
+                                                        <span>08:20am</span>
+                                                    </div>
+                                                    <a href="javascript:;">پاسخ</a>
+                                                </div>
+                                                <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+                                                    راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل
+                                                    حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
+                                                    طراحی اساسا مورد استفاده قرار گیرد.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% if request.user.is_authenticated %}
+                                <div class="blog_single_heading">
+                                    <h3>نظر شما درباره این مطلب</h3>
+                                    <img src="{% static 'images/footer_underline.png' %}" alt="image">
+                                </div>
+                                <div class="comment_form">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form_block">
+                                                <input type="text" class="form_field" placeholder="نام">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form_block">
+                                                <input type="text" class="form_field" placeholder="نام خانوادگی">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form_block">
+                                                <input type="text" class="form_field" placeholder="ایمیل">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form_block">
+                                                <input type="text" class="form_field" placeholder="عنوان">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="form_block">
+                                                <textarea placeholder="Message" class="form_field"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="form_block">
+                                                <button class="clv_btn">ارسال</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="blog_single_heading">
+                                    <h3>برای ثبط نظر خود وارد شوید.</h3>
+                                    <img src="{% static 'images/footer_underline.png' %}" alt="image">
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="blog_sidebar">
+                        <div class="sidebar_block">
+                            <div class="sidebar_heading">
+                                <h3>جستجو</h3>
+                                <img src="{% static 'images/footer_underline.png' %}" alt="image">
+                            </div>
+                            <div class="sidebar_search">
+                                <input type="text" placeholder="اینجا جستجو کنید">
+                                <a href="javascript:;"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="sidebar_block">
+                            <div class="sidebar_heading">
+                                <h3>دسته بندی</h3>
+                                <img src="{% static 'images/footer_underline.png' %}" alt="image">
+                            </div>
+                            <div class="sidebar_category">
+                                <ul>
+                                    <li><a href="javascript:;">کشاورزی ارگانیک<span>(12)</span></a></li>
+                                    <li><a href="javascript:;">خردل آلی تازه<span>(16)</span></a></li>
+                                    <li><a href="javascript:;">فلفل سبز زرد آلی<span>(156)</span></a></li>
+                                    <li><a href="javascript:;">پریمکتوری<span>(260)</span></a></li>
+                                    <li><a href="javascript:;">کشاورزی دقیق<span>(96)</span></a></li>
+                                    <li><a href="javascript:;">حفاظت کشاورزی<span>(12)</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar_block">
+                            <div class="sidebar_heading">
+                                <h3>آخرین پست ها</h3>
+                                <img src="{% static 'images/footer_underline.png' %}" alt="image">
+                            </div>
+                            <div class="sidebar_post">
+                                <ul>
+                                    <li>
+                                        <div class="post_image">
+                                            <img src="images/sidebar_post1.jpg" alt="image">
+                                        </div>
+                                        <div class="post_content">
+                                            <p>7 تیر 1398</p>
+                                            <a href="blog_single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+                                                از صنعت</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post_image">
+                                            <img src="images/sidebar_post2.jpg" alt="image">
+                                        </div>
+                                        <div class="post_content">
+                                            <p>7 تیر 1398</p>
+                                            <a href="blog_single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+                                                از صنعت</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="post_image">
+                                            <img src="images/sidebar_post2.jpg" alt="image">
+                                        </div>
+                                        <div class="post_content">
+                                            <p>7 تیر 1398</p>
+                                            <a href="blog_single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+                                                از صنعت</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar_block">
+                            <div class="sidebar_heading">
+                                <h3>آرشیوها</h3>
+                                <img src="{% static 'images/footer_underline.png' %}" alt="image">
+                            </div>
+                            <div class="sidebar_category">
+                                <ul>
+                                    <li><a href="javascript:;">فروردین<span>(12)</span></a></li>
+                                    <li><a href="javascript:;">اردیبهشت<span>(16)</span></a></li>
+                                    <li><a href="javascript:;">خرداد<span>(156)</span></a></li>
+                                    <li><a href="javascript:;">تیر<span>(260)</span></a></li>
+                                    <li><a href="javascript:;">مرداد<span>(96)</span></a></li>
+                                    <li><a href="javascript:;">شهریور<span>(12)</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="sidebar_block">
+                            <div class="sidebar_heading">
+                                <h3>برچسب ها</h3>
+                                <img src="{% static 'images/footer_underline.png' %}" alt="image">
+                            </div>
+                            <div class="sidebar_tags">
+                                <ul>
+                                    <li><a href="javascript:;">کشاورزی</a></li>
+                                    <li><a href="javascript:;">مزرعه</a></li>
+                                    <li><a href="javascript:;">ارگانیک</a></li>
+                                    <li><a href="javascript:;">egg</a></li>
+                                    <li><a href="javascript:;">پریمکتوری</a></li>
+                                    <li><a href="javascript:;">Green</a></li>
+                                    <li><a href="javascript:;">garden</a></li>
+                                    <li><a href="javascript:;">شیر</a></li>
+                                    <li><a href="javascript:;">dairy farm</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
