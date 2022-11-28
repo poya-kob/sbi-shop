@@ -195,12 +195,11 @@
                             </div>
                             <div class="sidebar_category">
                                 <ul>
-                                    <li><a href="javascript:;">کشاورزی ارگانیک<span>(12)</span></a></li>
-                                    <li><a href="javascript:;">خردل آلی تازه<span>(16)</span></a></li>
-                                    <li><a href="javascript:;">فلفل سبز زرد آلی<span>(156)</span></a></li>
-                                    <li><a href="javascript:;">پریمکتوری<span>(260)</span></a></li>
-                                    <li><a href="javascript:;">کشاورزی دقیق<span>(96)</span></a></li>
-                                    <li><a href="javascript:;">حفاظت کشاورزی<span>(12)</span></a></li>
+                                    {% for cat in categories %}
+                                        <li>
+                                            <a href="javascript:;">{{ cat.title }}<span>({{ cat.blogs.get_active_blogs.count }})</span></a>
+                                        </li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>
@@ -209,56 +208,14 @@
                                 <h3>آخرین پست ها</h3>
                                 <img src="{% static 'images/footer_underline.png' %}" alt="image">
                             </div>
-                            <div class="sidebar_post">
-                                <ul>
-                                    <li>
-                                        <div class="post_image">
-                                            <img src="images/sidebar_post1.jpg" alt="image">
-                                        </div>
-                                        <div class="post_content">
-                                            <p>7 تیر 1398</p>
-                                            <a href="blog_single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                                از صنعت</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post_image">
-                                            <img src="images/sidebar_post2.jpg" alt="image">
-                                        </div>
-                                        <div class="post_content">
-                                            <p>7 تیر 1398</p>
-                                            <a href="blog_single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                                از صنعت</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="post_image">
-                                            <img src="images/sidebar_post2.jpg" alt="image">
-                                        </div>
-                                        <div class="post_content">
-                                            <p>7 تیر 1398</p>
-                                            <a href="blog_single.html">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                                                از صنعت</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            {% include '_shaired/sidebar_post.html' %}
                         </div>
                         <div class="sidebar_block">
                             <div class="sidebar_heading">
                                 <h3>آرشیوها</h3>
                                 <img src="{% static 'images/footer_underline.png' %}" alt="image">
                             </div>
-                            <div class="sidebar_category">
-                                <ul>
-                                    <li><a href="javascript:;">فروردین<span>(12)</span></a></li>
-                                    <li><a href="javascript:;">اردیبهشت<span>(16)</span></a></li>
-                                    <li><a href="javascript:;">خرداد<span>(156)</span></a></li>
-                                    <li><a href="javascript:;">تیر<span>(260)</span></a></li>
-                                    <li><a href="javascript:;">مرداد<span>(96)</span></a></li>
-                                    <li><a href="javascript:;">شهریور<span>(12)</span></a></li>
-                                </ul>
-                            </div>
+
                         </div>
 
                         <div class="sidebar_block">

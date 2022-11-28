@@ -10,9 +10,10 @@ class BlogList(ListView):
     context_object_name = 'blogs'
 
     def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
+        context = super().get_context_data()
         categories = {blog.category for blog in self.queryset}
         context['categories'] = categories
+        context['posts'] = Blogs.objects.get_last_post()
         return context
 
 
@@ -20,3 +21,10 @@ class BlogDetail(DetailView):
     template_name = 'blog/blog_detail.html'
     queryset = Blogs.objects.get_active_blogs()
     context_object_name = 'blog'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data()
+        categories = {blog.category for blog in self.queryset}
+        context['categories'] = categories
+        context['posts'] = Blogs.objects.get_last_post()
+        return context
