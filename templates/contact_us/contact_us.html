@@ -1,0 +1,150 @@
+{% extends '_shaired/_MainLayout.html' %}
+{% load static %}
+{% block content %}
+    <!--Breadcrumb-->
+    <div class="breadcrumb_wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="breadcrumb_inner">
+                        <h3>تماس با ما</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb_block">
+            <ul>
+                <li><a href="index.html">صفحه اصلی</a></li>
+                <li>تماس با ما</li>
+            </ul>
+        </div>
+    </div>
+    <!--Contact Block-->
+    <div class="contact_blocks_wrapper clv_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="contact_block">
+                        <span></span>
+                        <div class="contact_icon"><img src="{% static 'images/contact_icon1.png' %}" alt="image"/></div>
+                        <h4>تماس با ما</h4>
+                        <p>+1-202-555-0101</p>
+                        <p>+1-202-555-0132</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="contact_block">
+                        <span></span>
+                        <div class="contact_icon"><img src="{% static 'images/contact_icon2.png' %}" alt="image"/></div>
+                        <h4>ایمیل</h4>
+                        <p>agriculture@example.com</p>
+                        <p>Cultivation@example.in</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="contact_block">
+                        <span></span>
+                        <div class="contact_icon"><img src="{% static 'images/contact_icon3.png' %}" alt="image"/></div>
+                        <h4>نشانی</h4>
+                        <p>ایران، تهران، میدان آزادی</p>
+                        <p>ایران، شیراز، ولی عصر</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Contact Form-->
+    <div class="contact_form_wrapper clv_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="contact_form_section">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                <h3>ارسال پیام برای ما</h3>
+                            </div>
+                            <form action="{% url 'contact' %}" method="post">
+                                {% csrf_token %}
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="form_block">
+                                        {{ form.first_name }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="form_block">
+                                        {{ form.last_name }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="form_block">
+                                        {{ form.email }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="form_block">
+                                        {{ form.title }}
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="form_block">
+                                        {{ form.text }}
+
+                                        <div class="response"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="form_block">
+                                        <button type="submit" class="clv_btn submitForm"
+                                                data-type="contact">ارسال
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="working_time_section">
+                        <div class="timetable_block">
+                            <h5>ساعات کاری</h5>
+                            <ul>
+                                <li>
+                                    <p>شنبه</p>
+                                    <p>9:30 am - 6:00 pm</p>
+                                </li>
+                                <li>
+                                    <p>یکشنبه</p>
+                                    <p>9:00 am - 6:00 pm</p>
+                                </li>
+                                <li>
+                                    <p>دوشنبه</p>
+                                    <p>9:45 am - 6:00 pm</p>
+                                </li>
+                                <li>
+                                    <p>سه شنبه</p>
+                                    <p>10:30 am - 6:00 pm</p>
+                                </li>
+                                <li>
+                                    <p>چهارشنبه</p>
+                                    <p>9:30 am - 6:00 pm</p>
+                                </li>
+                                <li>
+                                    <p>پنجشنبه</p>
+                                    <p>9:30 am - 6:00 pm</p>
+                                </li>
+                                <li>
+                                    <p>جمعه</p>
+                                    <p>تعطیل</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tollfree_block">
+                            <h5>رایگان تماس بگیرید</h5>
+                            <h3>+1-202-555-0101</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

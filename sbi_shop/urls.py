@@ -25,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
     path('blog/', include('blog.urls')),
-    path('ckeditor/', include('ckeditor_uploader.urls'))
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('', include('contact_us.urls'))
 ]
 if settings.DEBUG:
     # add root static files
