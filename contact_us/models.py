@@ -12,7 +12,3 @@ class ContactUs(models.Model):
     date = jmodels.jDateTimeField(auto_now_add=True)
     is_read = models.BooleanField(default=False)
 
-    def __init__(self):
-        super().__init__()
-        self.is_read = True
-        self.save()

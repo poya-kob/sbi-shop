@@ -63,31 +63,46 @@
                             <div class="col-md-12 col-lg-12">
                                 <h3>ارسال پیام برای ما</h3>
                             </div>
-                            <form action="{% url 'contact' %}" method="post">
+                            <form action="{% url 'contact' %}" id="contactform" method="post">
                                 {% csrf_token %}
                                 <div class="col-md-6 col-lg-6">
                                     <div class="form_block">
                                         {{ form.first_name }}
+                                        {% for error in form.first_name.errors %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
                                     <div class="form_block">
                                         {{ form.last_name }}
+                                        {% for error in form.last_name.errors %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
                                     <div class="form_block">
                                         {{ form.email }}
+                                        {% for error in form.email.errors %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
                                     <div class="form_block">
                                         {{ form.title }}
+                                        {% for error in form.title.errors %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-12">
                                     <div class="form_block">
                                         {{ form.text }}
+                                        {% for error in form.text.errors %}
+                                            <p class="text-danger">{{ error }}</p>
+                                        {% endfor %}
 
                                         <div class="response"></div>
                                     </div>

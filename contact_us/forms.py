@@ -1,21 +1,41 @@
 from django import forms
+from django.core import validators
 
-from .models import ContactUs
 
+class ContactForm(forms.Form):
+    first_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={'placeholder': 'نام خود را وارد کنید', 'class': 'form_field'}),
+        label="نام ",
+        validators=[
+            validators.MaxLengthValidator(100, "نام شما نمیتواند بیش از 100 کاراکتر باشد")])
 
-class ContactForm(forms.ModelForm):
-    class Meta:
-        model = ContactUs
-        fields = ['first_name', 'last_name', 'email', 'title', 'text']
-        widgets = {
-            'first_name': forms.TextInput(attrs={'placeholder': 'نام'}),
-            'last_name': forms.TextInput(attrs={'placeholder': 'نام خانوادگی'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'ایمیل'}),
-            'title': forms.TextInput(attrs={'placeholder': 'عنوان'}),
-            'text': forms.Textarea(attrs={'placeholder': 'پیام'}),
-        }
+    last_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={'placeholder': 'نام خانوادگی خود را وارد کنید', 'class': 'form_field'}),
+        label="نام خانوادگی",
+        validators=[
+            validators.MaxLengthValidator(100, "نام خانوادگی شما نمیتواند بیش از 100 کاراکتر باشد")])
 
-    def __init__(self, *args, **kwargs):
-        super(ContactForm, self).__init__()
-        for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'form_field require'
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={'placeholder': 'ایمیل خود را وارد کنید', 'class': 'form_field'}),
+        label="ایمیل",
+        validators=[
+            validators.MaxLengthValidator(200, "تعداد کاراکترهایایمیل شما نمیتواند بیش از ۲۰۰ کاراکتر باشد.")
+        ])
+
+    title = forms.CharField(
+        widget=forms.TextInput(
+            attrs={'placeholder': 'عنوان پیام خود را وارد کنید', 'class': 'form_field'}),
+        label="عنوان",
+        validators=[
+            validators.MaxLengthValidator(250, "تعداد کاراکترهای  شما نمیتواند بیش از 250 کاراکتر باشد.")
+        ])
+
+    text = forms.CharField(
+        widget=forms.Textarea(
+            attrs={'placeholder': 'متن پیام خود را وارد کنید', 'class': 'form_field'}),
+        label="متن پیام",
+    )
+
