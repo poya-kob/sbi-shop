@@ -26,3 +26,19 @@ class Blogs(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comments(mp.MPTTModel):
+    first_name = models.CharField(max_length=150, null=True, blank=True)
+    last_name = models.CharField(max_length=150, null=True, blank=True)
+    email = models.EmailField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='comments')
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    created = models.DateField(auto_now_add=True)
+    blog = models.ForeignKey(Blogs, on_delete=models.CASCADE, related_name='comments')
+    parent = mp.TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    is_published = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.user)

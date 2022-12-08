@@ -128,51 +128,58 @@
                                     </li>
                                 </ul>
                             </div>
-                            {% if request.user.is_authenticated %}
+                            <form method="post" action="{% url 'comment' pk=blog.id %}">
                                 <div class="blog_single_heading">
                                     <h3>نظر شما درباره این مطلب</h3>
                                     <img src="{% static 'images/footer_underline.png' %}" alt="image">
                                 </div>
                                 <div class="comment_form">
                                     <div class="row">
-                                        <div class="col-md-6 col-lg-6">
+                                        {% csrf_token %}
+                                        <div {{ user.is_authenticated|yesno:'hidden,""' }}
+                                                class="col-md-6 col-lg-6">
                                             <div class="form_block">
-                                                <input type="text" class="form_field" placeholder="نام">
+                                                {{ comment.first_name }}
+                                            </div>
+                                        </div>
+                                        <div {{ user.is_authenticated|yesno:'hidden,""' }}
+                                                class="col-md-6 col-lg-6">
+                                            <div class="form_block">
+                                                {{ comment.last_name }}
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="form_block">
-                                                <input type="text" class="form_field" placeholder="نام خانوادگی">
+                                                {{ comment.title }}
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-lg-6">
+                                        <div {{ user.is_authenticated|yesno:'hidden,""' }}
+                                                class="col-md-6 col-lg-6">
                                             <div class="form_block">
-                                                <input type="text" class="form_field" placeholder="ایمیل">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="form_block">
-                                                <input type="text" class="form_field" placeholder="عنوان">
+                                                {{ comment.email }}
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-lg-12">
                                             <div class="form_block">
-                                                <textarea placeholder="Message" class="form_field"></textarea>
+                                                {{ comment.body }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-12">
+                                            <div hidden class="form_block">
+                                                <select name="blog" required="" id="id_blog" style="display: none;">
+                                                    <option value="{{ blog.id }}" selected>{{ blog.title }}</option>
+
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-lg-12">
                                             <div class="form_block">
-                                                <button class="clv_btn">ارسال</button>
+                                                <button type="submit" class="clv_btn">ارسال</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            {% else %}
-                                <div class="blog_single_heading">
-                                    <h3>برای ثبط نظر خود وارد شوید.</h3>
-                                    <img src="{% static 'images/footer_underline.png' %}" alt="image">
-                                </div>
-                            {% endif %}
+                            </form>
                         </div>
                     </div>
                 </div>
