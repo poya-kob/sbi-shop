@@ -29,7 +29,7 @@ class BlogDetail(DetailView):
         context['categories'] = categories
         context['posts'] = Blogs.objects.get_last_post()
         context['comment'] = CommentsForm(initial={'id_blog': kwargs['object'].id})
-
+        print(kwargs['object'].comments.get_active_comments())
         return context
 
 

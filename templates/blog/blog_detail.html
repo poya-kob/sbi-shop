@@ -22,7 +22,7 @@
                                     </div>
                                     <div class="comment_block">
                                         <span><i class="fa fa-comments-o" aria-hidden="true"></i></span>
-                                        <a href="javascript:;">26 نظر</a>
+                                        <a href="javascript:;">{{ blog.comments.get_active_comments.count }} نظر</a>
                                     </div>
                                 </div>
                                 <p>{{ blog.body|safe }}</p>
@@ -33,99 +33,66 @@
                             </div>
 
                             <div class="blog_single_heading">
-                                <h3>نظرات <span>(03)</span></h3>
+                                <h3>نظرات <span>({{ blog.comments.get_active_comments.count }})</span>
+                                </h3>
                                 <img src="{% static 'images/footer_underline.png' %}" alt="image">
                             </div>
                             <div class="comment_section">
                                 <ul>
-                                    <li>
-                                        <div class="comment_box">
-                                            <div class="comment_image">
-                                                <img src="images/comment1.jpg" alt="image">
-                                            </div>
-                                            <div class="comment_text">
-                                                <div class="comment_header">
-                                                    <div class="comment_name">
-                                                        <h5>علی عمادزاده</h5>
-                                                        <span>9 تیر 1398</span>
-                                                        <span>08:20am</span>
-                                                    </div>
-                                                    <a href="javascript:;">پاسخ</a>
-                                                </div>
-                                                <p>کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان
-                                                    جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را
-                                                    برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در
-                                                    زبان فارسی ایجاد کرد. </p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="comment_box">
-                                            <div class="comment_image">
-                                                <img src="images/comment2.jpg" alt="image">
-                                            </div>
-                                            <div class="comment_text">
-                                                <div class="comment_header">
-                                                    <div class="comment_name">
-                                                        <h5>علی عمادزاده</h5>
-                                                        <span>9 تیر 1398</span>
-                                                        <span>08:20am</span>
-                                                    </div>
-                                                    <a href="javascript:;">پاسخ</a>
-                                                </div>
-                                                <p>چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                                                    است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با
-                                                    هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه
-                                                    درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد
-                                                    تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
-                                                    الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <ul>
+                                    {% for comment in  blog.comments.get_active_comments %}
+                                        {% if comment.parent is None %}
                                             <li>
                                                 <div class="comment_box">
                                                     <div class="comment_image">
-                                                        <img src="images/comment3.jpg" alt="image">
+                                                        <img src="{% static 'images/user.png' %}" alt="image">
                                                     </div>
                                                     <div class="comment_text">
                                                         <div class="comment_header">
                                                             <div class="comment_name">
-                                                                <h5>علی عمادزاده</h5>
-                                                                <span>9 تیر 1398</span>
-                                                                <span>08:20am</span>
+                                                                {% if comment.first_name or comment.last_name %}
+                                                                    <h5>{{ comment.first_name }} {{ comment.last_name }}</h5>
+                                                                {% else %}
+                                                                    <h5>{{ comment.user }}</h5>
+                                                                {% endif %}
+                                                                <span>{{ comment.created }}</span>
                                                             </div>
-                                                            <a href="javascript:;">پاسخ</a>
+                                                            {% if request.user.is_superuser %}
+                                                                <a href="javascript:;">پاسخ</a>
+                                                            {% endif %}
                                                         </div>
-                                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                                                            و با استفاده از طراحان گرافیک است. </p>
+                                                        <p>{{ comment.body }}</p>
                                                     </div>
                                                 </div>
                                             </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="comment_box">
-                                            <div class="comment_image">
-                                                <img src="images/comment4.jpg" alt="image">
-                                            </div>
-                                            <div class="comment_text">
-                                                <div class="comment_header">
-                                                    <div class="comment_name">
-                                                        <h5>علی عمادزاده</h5>
-                                                        <span>9 تیر 1398</span>
-                                                        <span>08:20am</span>
-                                                    </div>
-                                                    <a href="javascript:;">پاسخ</a>
-                                                </div>
-                                                <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
-                                                    راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل
-                                                    حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود
-                                                    طراحی اساسا مورد استفاده قرار گیرد.</p>
-                                            </div>
-                                        </div>
-                                    </li>
+                                            {% for reply in comment.children.get_active_comments %}
+                                                <li>
+                                                    <ul>
+                                                        <li>
+                                                            <div class="comment_box">
+                                                                <div class="comment_image">
+                                                                    <img src="{% static 'images/user.png' %}"
+                                                                         alt="image">
+                                                                </div>
+                                                                <div class="comment_text">
+                                                                    <div class="comment_header">
+                                                                        <div class="comment_name">
+                                                                            {% if reply.first_name or reply.last_name %}
+                                                                                <h5>{{ reply.first_name }} {{ reply.last_name }}</h5>
+                                                                            {% else %}
+                                                                                <h5>{{ reply.user }}</h5>
+                                                                            {% endif %}
+                                                                            <span>{{ reply.created }}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p>{{ reply.body }} </p>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                             <form method="post" action="{% url 'comment' pk=blog.id %}">

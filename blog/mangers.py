@@ -1,4 +1,5 @@
 from django.db.models import Manager
+from mptt.models import TreeManager
 
 
 class BlogsManager(Manager):
@@ -7,3 +8,8 @@ class BlogsManager(Manager):
 
     def get_last_post(self):
         return self.get_active_blogs().order_by('-id')[:3]
+
+
+class CommentManager(TreeManager):
+    def get_active_comments(self):
+        return self.get_queryset().filter(is_published=True)

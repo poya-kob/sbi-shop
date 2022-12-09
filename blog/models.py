@@ -7,7 +7,7 @@ from django_jalali.db import models as jmodels
 from mptt import models as mp
 
 from categories.models import Categories
-from .mangers import BlogsManager
+from .mangers import BlogsManager, CommentManager
 from utils import upload_image_path
 
 
@@ -35,10 +35,12 @@ class Comments(mp.MPTTModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='comments')
     title = models.CharField(max_length=200)
     body = models.TextField()
-    created = models.DateField(auto_now_add=True)
+    created = jmodels.jDateField(auto_now_add=True)
     blog = models.ForeignKey(Blogs, on_delete=models.CASCADE, related_name='comments')
     parent = mp.TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     is_published = models.BooleanField(default=False)
+
+    objects = CommentManager()
 
     def __str__(self):
         return str(self.user)
