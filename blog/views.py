@@ -6,7 +6,7 @@ from .forms import CommentsForm
 
 class BlogList(ListView):
     template_name = 'blog/blog_list.html'
-    paginate_by = 5
+    paginate_by = 1
     queryset = Blogs.objects.get_active_blogs().order_by("modified_date")
     context_object_name = 'blogs'
 
@@ -16,6 +16,12 @@ class BlogList(ListView):
         context['categories'] = categories
         context['posts'] = Blogs.objects.get_last_post()
         return context
+
+    def get_queryset(self):
+        query = super().get_queryset()
+        if self.request.GET.get('cat', False):
+            query = query.filter(category_id=int(self.request.GET.get('cat')))
+        return query
 
 
 class BlogDetail(DetailView):
