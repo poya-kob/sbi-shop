@@ -1,0 +1,14 @@
+{% load static %}
+<div class="sidebar_block">
+    <div class="sidebar_heading">
+        <h3>جستجو</h3>
+        <img src="{% static 'images/footer_underline.png' %}" alt="image">
+    </div>
+    <form id="search_form" action="{% url 'search' %}" >
+        <div class="sidebar_search">
+            <input type="text" name="q" value="{{ request.GET.q }}" placeholder="اینجا جستجو کنید">
+            <a href="javascript:{}" onclick="document.getElementById('search_form').submit();"><i class="fa fa-search"
+                                                                                              aria-hidden="true"></i></a>
+        </div>
+    </form>
+</div>

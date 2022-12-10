@@ -49,3 +49,15 @@ class CommentsView(View):
             else:
                 Comments.objects.create(**comment.cleaned_data)
         return redirect(resolve_url('blog_detail', pk=pk))
+
+
+class Search(ListView):
+    model = Blogs
+    template_name = 'blog/blog_list.html'
+    context_object_name = 'blogs'
+    paginate_by = 10
+
+    def get_queryset(self):
+        request = self.request
+        query = request.GET.get('q')
+        return Blogs.objects.search(query)
