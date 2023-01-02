@@ -18,3 +18,10 @@ def upload_image_path(instance, filename):
     name, ext = get_file_name(filename)
     new_name = f"{name}{ext}"
     return f"{type(instance).__name__}/{date.year}/{date.month}/{date.day}/{new_name}"
+
+
+def upload_video_path(instance, filename):
+    date = datetime.datetime.now()
+    name, ext = get_file_name(filename)
+    new_name = f"{name}{ext}"
+    return f"videos/{date.year}/{date.month}/{date.day}/{new_name}"

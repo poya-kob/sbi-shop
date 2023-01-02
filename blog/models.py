@@ -8,7 +8,7 @@ from mptt import models as mp
 
 from categories.models import Categories
 from .mangers import BlogsManager, CommentManager
-from utils import upload_image_path
+from utils import upload_image_path, upload_video_path
 
 
 class Blogs(models.Model):
@@ -17,11 +17,13 @@ class Blogs(models.Model):
     image = models.ImageField(verbose_name=_("image"), upload_to=upload_image_path)
     category = mp.TreeForeignKey(Categories, on_delete=models.SET_NULL, null=True, related_name='blogs',
                                  verbose_name=_('category'))
-    video = models.FileField(verbose_name=_("video"), null=True, blank=True)
+    video = models.FileField(verbose_name=_("video"), upload_to=upload_video_path, null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     created_date = jmodels.jDateField(auto_now_add=True)
     modified_date = jmodels.jDateTimeField(auto_now=True)
     is_active = models.BooleanField(default=False)
+    show_on_slider = models.BooleanField(default=False)
+    selected_blog = models.BooleanField(default=False)
     objects = BlogsManager()
 
     def __str__(self):

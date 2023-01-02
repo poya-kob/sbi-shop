@@ -25,6 +25,11 @@
                                         <a href="javascript:;">{{ blog.comments.get_active_comments.count }} نظر</a>
                                     </div>
                                 </div>
+                                {% if blog.video %}
+                                    <div class="embed-responsive embed-responsive-4by3">
+                                        <video class="video_block" src="{{ blog.video.url }}"></video>
+                                    </div>
+                                {% endif %}
                                 <p>{{ blog.body|safe }}</p>
                                 <br>
                                 <hr>
