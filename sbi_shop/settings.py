@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'django_jalali',
 
+
     # my app
     "blog",
     'contact_us',

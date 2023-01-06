@@ -26,8 +26,10 @@
                                     </div>
                                 </div>
                                 {% if blog.video %}
-                                    <div class="embed-responsive embed-responsive-4by3">
-                                        <video class="video_block" src="{{ blog.video.url }}"></video>
+                                    <div class="video_block" >
+                                        <video  width="80git add -a%" height="85%" controls preload="preload">
+                                            <source src="{{ blog.video.url}}" type="video/mp4" size="800x600"></source>
+                                        </video>
                                     </div>
                                 {% endif %}
                                 <p>{{ blog.body|safe }}</p>
