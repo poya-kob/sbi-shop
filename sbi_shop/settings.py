@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
+from django.contrib.messages import constants as messages
 
 env_file = Path(find_dotenv(usecwd=True))
 load_dotenv(verbose=True, dotenv_path=env_file)
@@ -30,7 +31,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
-
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+}
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

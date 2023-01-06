@@ -1,5 +1,5 @@
-import contextlib
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from blog.models import Blogs
 from .models import Newsletter
@@ -15,6 +15,10 @@ def home(request):
 
 
 def newsletter(request):
-    with contextlib.suppress(Exception):
+    try:
         Newsletter.objects.create(email=request.POST.get('email', None))
+        messages.success(request, 'email submitted successfully.')
+    except Exception as error:
+        messages.error(request, 'submit email failed.')
+
     return redirect(request.POST.get('next', '/'))
