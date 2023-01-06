@@ -1,6 +1,8 @@
-from django.shortcuts import render
+import contextlib
+from django.shortcuts import render, redirect
 
 from blog.models import Blogs
+from .models import Newsletter
 
 
 def home(request):
@@ -10,3 +12,9 @@ def home(request):
 
     }
     return render(request, 'home/index.html', context)
+
+
+def newsletter(request):
+    with contextlib.suppress(Exception):
+        Newsletter.objects.create(email=request.POST.get('email', None))
+    return redirect(request.POST.get('next', '/'))

@@ -2247,7 +2247,7 @@ Purchase:
  	outline: none;
  }
 
- .clv_newsletter_wrapper .newsletter_field .newsletter_field_block>a {
+ .clv_newsletter_wrapper .newsletter_field .newsletter_field_block>button {
  	position: absolute;
  	top: 0;
  	left: 0;
@@ -2264,7 +2264,7 @@ Purchase:
  	-moz-transition: all 0.3s ease-in-out;
  }
 
- .clv_newsletter_wrapper .newsletter_field .newsletter_field_block>a:hover {
+ .clv_newsletter_wrapper .newsletter_field .newsletter_field_block>button:hover {
  	background-color: #555555;
  }
 
