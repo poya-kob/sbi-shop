@@ -9,10 +9,11 @@
                 <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
                 <div id="rev_slider_149_1" class="rev_slider fullscreenbanner" style="display:none;"
                      data-version="5.4.1">
-                    {% for slider in sliders %}
-                        <ul>
+                    <ul>
+                        {% for slider in sliders %}
+
                             <!-- SLIDE  -->
-                            <li data-index="rs-407" data-transition="fade" data-slotamount="default"
+                            <li data-index="rs-{{ forloop.counter }}" data-transition="fade" data-slotamount="default"
                                 data-hideafterloop="0"
                                 data-hideslideonmobile="off" data-easein="default" data-easeout="default"
                                 data-masterspeed="2000" data-thumb="../../assets/images/blur1-100x50.jpg"
@@ -29,10 +30,11 @@
                                      data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="6" class="rev-slidebg"
                                      data-no-retina style="background-color: rgba(0,0,0,0.8)">
                                 <!-- LAYERS -->
-                                <div id="rrzm_407" class="rev_row_zone rev_row_zone_middle" style="z-index: 6;">
+                                <div id="rrzm_{{ forloop.counter }}" class="rev_row_zone rev_row_zone_middle"
+                                     style="z-index: 6;">
 
                                     <!-- LAYER NR. 1 -->
-                                    <div class="tp-caption  " id="slide-407-layer-14"
+                                    <div class="tp-caption  " id="slide-{{ forloop.counter }}-layer-14"
                                          data-x="['right','right','right','right']"
                                          data-hoffset="['100','100','100','100']"
                                          data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
@@ -47,7 +49,7 @@
                                          data-paddingbottom="[0,0,0,0]" data-paddingleft="[100,50,50,50]"
                                          style="z-index: 6; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(255, 255, 255, 1.00);">
                                         <!-- LAYER NR. 2 -->
-                                        <div class="tp-caption  " id="slide-407-layer-15"
+                                        <div class="tp-caption  " id="slide-{{ forloop.counter }}-layer-15"
                                              data-x="['right','right','right','right']"
                                              data-hoffset="['100','100','100','100']" data-y="['top','top','top','top']"
                                              data-voffset="['100','100','100','100']" data-width="none"
@@ -63,7 +65,8 @@
                                              data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
                                              data-paddingleft="[0,0,0,0]" style="z-index: 7; width: 100%;">
                                             <!-- LAYER NR. 3 -->
-                                            <div class="tp-caption   tp-resizeme" id="slide-407-layer-1"
+                                            <div class="tp-caption   tp-resizeme"
+                                                 id="slide-{{ forloop.counter }}-layer-1"
                                                  data-x="['right','right','right','right']"
                                                  data-hoffset="['0','0','0','0']"
                                                  data-y="['top','top','top','top']" data-voffset="['0','0','230','110']"
@@ -84,7 +87,8 @@
                                             </div>
 
                                             <!-- LAYER NR. 4 -->
-                                            <div class="tp-caption   tp-resizeme" id="slide-407-layer-2"
+                                            <div class="tp-caption   tp-resizeme"
+                                                 id="slide-{{ forloop.counter }}-layer-2"
                                                  data-x="['right','right','right','right']"
                                                  data-hoffset="['0','50','0','0']"
                                                  data-y="['top','top','top','top']"
@@ -104,7 +108,8 @@
                                                 {{ slider.title }}
                                             </div>
                                             <!-- LAYER NR. 5 -->
-                                            <div class="tp-caption   tp-resizeme" id="slide-407-layer-3"
+                                            <div class="tp-caption   tp-resizeme"
+                                                 id="slide-{{ forloop.counter }}-layer-3"
                                                  data-x="['right','right','right','right']"
                                                  data-hoffset="['100','50','0','0']" data-y="['top','top','top','top']"
                                                  data-voffset="['0','430','460','290']"
@@ -125,7 +130,8 @@
 
                                             <a href="{% url 'blog_detail' pk=slider.id %}" target="_blank"
                                                class="tp-caption rev-btn clv_btn"
-                                               id="slide-407-layer-4" data-x="['center','center','center','center']"
+                                               id="slide-{{ forloop.counter }}-layer-4"
+                                               data-x="['center','center','center','center']"
                                                data-hoffset="['0','0','0','0']" data-y="['bottom','bottom','top','top']"
                                                data-voffset="['30','30','30','30']" data-width="170px"
                                                data-height="none"
@@ -158,8 +164,9 @@
                                      style="z-index: 5;background-color:rgba(37, 37, 37, 0.7);">
                                 </div>
                             </li>
-                        </ul>
-                    {% endfor %}
+                        {% endfor %}
+                    </ul>
+
                 </div>
             </div><!-- END REVOLUTION SLIDER -->
             <div class="scroll_down">
@@ -170,42 +177,154 @@
         <!--Revolution Slider-->
     {% endif %}
     <!--About Section-->
-    <div class="clv_about_wrapper clv_section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="about_img">
-                        <img src="{{ selected_blog.0.image.url }}" alt="image"/>
+    {% if selected_blog.0 %}
+        <div class="clv_about_wrapper clv_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about_img">
+                            <img src="{{ selected_blog.0.image.url }}" alt="image"/>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="about_content">
-                        <div class="about_heading">
-                            <h2>{{ selected_blog.0.title }}</h2>
-                            <div class="clv_underline"><img src="{% static 'images/underline.png' %}" alt="image"/>
-                            </div>
-                        </div>
-                        <div class="para_content">
-                            <p> {{ selected_blog.0.body|safe }}</p>
-                        </div>
-                        <div class="video_block">
-                            {% if selected_blog.0.video %}
-                                <div class="video_btn">
-                                    <a href="{{ selected_blog.0.video.url }} " class="play_video"><span
-                                            class="pulse"><i class="fa fa-play" aria-hidden="true"></i></span> مشاهده
-                                        ویدئو</a>
+                    <div class="col-md-6">
+                        <div class="about_content">
+                            <div class="about_heading">
+                                <h2>{{ selected_blog.0.title }}</h2>
+                                <div class="clv_underline"><img src="{% static 'images/underline.png' %}" alt="image"/>
                                 </div>
+                            </div>
+                            <div class="para_content">
+                                <p> {{ selected_blog.0.body|safe|slice:500 }}</p>
+                            </div>
+                            <div class="video_block">
+                                {% if selected_blog.0.video %}
+                                    <div class="video_btn">
+                                        <a href="{{ selected_blog.0.video.url }} " class="play_video"><span
+                                                class="pulse"><i class="fa fa-play" aria-hidden="true"></i></span>
+                                            مشاهده
+                                            ویدئو</a>
+                                    </div>
                                 {% endif %}
                                 <a href="{% url 'blog_detail' pk=selected_blog.0.id %}" class="clv_btn">بیشتر
                                     بخوانید</a>
 
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <!--About Section-->
+    <!--Counter Section-->
+    <div class="clv_counter_wrapper clv_section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="clv_heading white_heading">
+                        <h3>ما در این زمینه متخصص هستیم</h3>
+                        <div class="clv_underline"><img src="{% static 'images/underline2.png' %}" alt="image"/></div>
+                        <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ
+                            به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی</p>
+                    </div>
+                </div>
+            </div>
+            <div class="counter_section">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3">
+                        <div class="counter_block">
+                            <div class="counter_img">
+									<span class="red_bg"><img src="{% static 'images/counter_customer.png' %}"
+                                                              alt="image"
+                                                              class="img-fluid"/></span>
+                            </div>
+                            <div class="counter_text">
+                                <h4><span class="count_no" data-to="26" data-speed="3000">26</span><span>k+</span>
+                                </h4>
+                                <h5>مشتریان راضی</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="counter_block">
+                            <div class="counter_img">
+									<span class="yellow_bg"><img src="{% static 'images/counter_project.png' %}"
+                                                                 alt="image"
+                                                                 class="img-fluid"/></span>
+                            </div>
+                            <div class="counter_text">
+                                <h4><span class="count_no" data-to="700" data-speed="3000">700</span><span>+</span>
+                                </h4>
+                                <h5>پروژه های تکمیل شده</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="counter_block">
+                            <div class="counter_img">
+									<span class="orange_bg"><img src="{% static 'images/counter_branch.png' %}"
+                                                                 alt="image"
+                                                                 class="img-fluid"/></span>
+                            </div>
+                            <div class="counter_text">
+                                <h4><span class="count_no" data-to="200" data-speed="3000">200</span><span>+</span>
+                                </h4>
+                                <h5>شعبه های بین المللی</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="counter_block">
+                            <div class="counter_img">
+									<span class="blue_bg"><img src="{% static 'images/counter_winner.png' %}"
+                                                               alt="image"
+                                                               class="img-fluid"/></span>
+                            </div>
+                            <div class="counter_text">
+                                <h4><span class="count_no" data-to="6" data-speed="3000">6</span><span>k+</span>
+                                </h4>
+                                <h5>جوایز دریافت شده</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--Counter Section-->
+    <!--About Farm-->
+    {% if selected_blog.1 %}
+        <div class="about_farm_wrapper clv_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about_content">
+                            <div class="about_heading">
+                                <h2>{{ selected_blog.1.title }}</h2>
+                                <div class="clv_underline"><img src="{% static 'images/underline.png' %}" alt="image"/>
+                                </div>
 
+                            </div>
+                            <div class="para_content">
+                                <p>{{ selected_blog.1.body|safe|slice:500 }}</p>
+                            </div>
+                            <a href="{% url 'blog_detail' pk=selected_blog.1.id %}" class="clv_btn">بیشتر بخوانید</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about_img">
+                            <img src="{{ selected_blog.1.image.url }}" alt="image"/>
+                            <div class="about_img_details">
+                                <h3>پشتیبانی دوستانه و اختصاصی در هر مرحله از راه</h3>
+                                <h1>(+61) 1080-1247-1247</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <!--About Farm-->
 
 {% endblock %}
