@@ -327,80 +327,51 @@
     {% endif %}
     <!--About Farm-->
     <!--Services-->
-    <div class="clv_service_wrapper clv_section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-6">
-                    <div class="clv_heading">
-                        <h3>مشاهده خدمات پیشنهادی ما</h3>
-                        <div class="clv_underline"><img src="{% static 'images/underline3.png' %}" alt="image"/></div>
-                        <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ
-                            به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی</p>
-                    </div>
-                </div>
-            </div>
-            <div class="service_main_wrapper">
-                <div class="row">
-                    <div class="col-lg-8 col-md-8">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="service_block">
-                                    <span></span>
-                                    <div class="service_icon"><img src="images/event_service.png" alt="image"/>
-                                    </div>
-                                    <h4>آموزش ها و رویدادها</h4>
-                                    <div class="clv_underline"><img src="images/service_underline.png"
-                                                                    alt="image"/></div>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                                        طراحان گرافیک است. چاپگرها و متون بلکه روزنامه</p>
-                                </div>
+    {% if selected_services %}
+        <div class="clv_service_wrapper clv_section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="clv_heading">
+                            <a href="{% url 'service_list' %}"><h3>مشاهده خدمات پیشنهادی ما</h3></a>
+                            <div class="clv_underline"><img src="{% static 'images/underline3.png' %}" alt="image"/>
                             </div>
-                            <div class="col-md-6">
-                                <div class="service_block">
-                                    <span></span>
-                                    <div class="service_icon"><img src="images/egg_service.png" alt="image"/></div>
-                                    <h4>تخم مرغ های طبیعی</h4>
-                                    <div class="clv_underline"><img src="images/service_underline.png"
-                                                                    alt="image"/></div>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                                        طراحان گرافیک است. چاپگرها و متون بلکه روزنامه</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="service_block">
-                                    <span></span>
-                                    <div class="service_icon"><img src="images/farm_service.png" alt="image"/>
-                                    </div>
-                                    <h4>مزارع ما</h4>
-                                    <div class="clv_underline"><img src="images/service_underline.png"
-                                                                    alt="image"/></div>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                                        طراحان گرافیک است. چاپگرها و متون بلکه روزنامه</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="service_block">
-                                    <span></span>
-                                    <div class="service_icon"><img src="images/hens_service.png" alt="image"/>
-                                    </div>
-                                    <h4>بهترین مرغ ها</h4>
-                                    <div class="clv_underline"><img src="images/service_underline.png"
-                                                                    alt="image"/></div>
-                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                                        طراحان گرافیک است. چاپگرها و متون بلکه روزنامه</p>
-                                </div>
-                            </div>
+                            <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ
+                                به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4">
-                        <div class="service_girl_img">
-                            <img src="{% static 'images/service_girl.png' %}" alt="image"/>
+                </div>
+                <div class="service_main_wrapper">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8">
+                            <div class="row">
+                                {% for service in selected_services %}
+                                    <div class="col-md-6">
+                                        <div class="service_block">
+                                            <span></span>
+                                            <div class="service_icon"><img src="{{ service.image.url }}" alt="image"/>
+                                            </div>
+                                            <a href="{% url 'service_detail' sid=service.id %}"><h4>{{ service.title }}</h4></a>
+                                            <div class="clv_underline"><img
+                                                    src="{% static 'images/service_underline.png' %}"
+                                                    alt="image"/></div>
+                                            <p>{{ service.body|safe|slice:200 }} ...</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="service_girl_img">
+                                <img src="{% static 'images/service_girl.png' %}" alt="image"/>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
     <!--Services-->
     <!--Blog-->
     <div class="clv_blog_wrapper clv_section">
@@ -439,7 +410,8 @@
                                                     </div>
                                                     <div class="comment_block">
                                                         <span><i class="fa fa-comments-o" aria-hidden="true"></i></span>
-                                                        <a href="javascript:;">{{ blog.comments.get_active_comments.count }} نظر</a>
+                                                        <a href="javascript:;">{{ blog.comments.get_active_comments.count }}
+                                                            نظر</a>
                                                     </div>
                                                 </div>
                                                 <p>{{ blog.body|safe|slice:150 }} ...</p>

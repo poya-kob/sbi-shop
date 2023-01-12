@@ -25,3 +25,9 @@ def upload_video_path(instance, filename):
     name, ext = get_file_name(filename)
     new_name = f"{name}{ext}"
     return f"videos/{date.year}/{date.month}/{date.day}/{new_name}"
+
+
+def grouper(list_a, chunk_size: int):
+    for i in range(0, len(list_a), chunk_size):
+        yield list_a[i:i + chunk_size]
+
