@@ -5,7 +5,7 @@
             <div class="col-lg-4 col-md-4">
                 <div class="clv_left_header">
                     <div class="clv_logo">
-                        <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="Cultivation"/></a>
+                        <a href="/"><img src="{% static 'images/logo.png' %}" alt="Cultivation"/></a>
                     </div>
                 </div>
             </div>
@@ -97,7 +97,7 @@
                                     <a href="/">صفحه اصلی</a>
                                 </li>
                                 <li><a href="about.html">درباره ما</a></li>
-                                <li><a href="service.html">خدمات</a></li>
+                                <li><a href="{% url 'service_list' %}">خدمات</a></li>
                                 <li><a href="gallery.html">گالری</a></li>
                                 <li>
                                     <a href="{% url 'blogs' %}">بلاگ</a>
