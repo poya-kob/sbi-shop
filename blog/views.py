@@ -1,4 +1,7 @@
+
+from django.core import serializers
 from django.shortcuts import redirect, resolve_url
+from django.http import JsonResponse
 from django.views.generic import ListView, DetailView, View
 from .models import Blogs, Comments
 from .forms import CommentsForm
@@ -40,6 +43,14 @@ class BlogDetail(DetailView):
 
 class CommentsView(View):
     def post(self, request, pk):
+        if request.POST.get('comment_id'):
+            comment = Comments.objects.create(user_id=request.user.id,
+                                              body=request.POST.get('comment_text'),
+                                              parent_id=request.POST.get('comment_id'), blog_id=pk,
+                                              is_published=True)
+            response_data = serializers.serialize('json', [comment, request.user])
+
+            return JsonResponse(response_data, safe=False)
         comment = CommentsForm(request.POST)
 
         if comment.is_valid():

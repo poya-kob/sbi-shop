@@ -35,7 +35,7 @@ class Comments(mp.MPTTModel):
     last_name = models.CharField(max_length=150, null=True, blank=True)
     email = models.EmailField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='comments')
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, null=True)
     body = models.TextField()
     created = jmodels.jDateField(auto_now_add=True)
     blog = models.ForeignKey(Blogs, on_delete=models.CASCADE, related_name='comments')

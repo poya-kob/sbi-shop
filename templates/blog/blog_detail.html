@@ -62,44 +62,57 @@
                                                                     <h5>{{ comment.user }}</h5>
                                                                 {% endif %}
                                                                 <span>{{ comment.created }}</span>
+
+
                                                             </div>
+
+
                                                             {% if request.user.is_superuser %}
                                                                 <a href="#" class="comment-reply"
                                                                    data-post-id="{{ blog.id }}"
                                                                    data-comment-id="{{ comment.id }}">پاسخ</a>
                                                             {% endif %}
                                                         </div>
+                                                        {% if comment.title %}
+                                                            <h6> {{ comment.title }}</h6>
+                                                        {% endif %}
                                                         <p>{{ comment.body }}</p>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            {% for reply in comment.children.get_active_comments %}
-                                                <li>
+
+                                                {% if comment.children.get_active_comments %}
                                                     <ul>
-                                                        <li>
-                                                            <div class="comment_box">
-                                                                <div class="comment_image">
-                                                                    <img src="{% static 'images/user.png' %}"
-                                                                         alt="image">
-                                                                </div>
-                                                                <div class="comment_text">
-                                                                    <div class="comment_header">
-                                                                        <div class="comment_name">
-                                                                            {% if reply.first_name or reply.last_name %}
-                                                                                <h5>{{ reply.first_name }} {{ reply.last_name }}</h5>
-                                                                            {% else %}
-                                                                                <h5>{{ reply.user }}</h5>
-                                                                            {% endif %}
-                                                                            <span>{{ reply.created }}</span>
-                                                                        </div>
+                                                        {% for reply in comment.children.get_active_comments %}
+
+
+                                                            <li>
+                                                                <div class="comment_box">
+                                                                    <div class="comment_image">
+                                                                        <img src="{% static 'images/user.png' %}"
+                                                                             alt="image">
                                                                     </div>
-                                                                    <p>{{ reply.body }} </p>
+                                                                    <div class="comment_text">
+                                                                        <div class="comment_header">
+                                                                            <div class="comment_name">
+                                                                                {% if reply.first_name or reply.last_name %}
+                                                                                    <h5>{{ reply.first_name }} {{ reply.last_name }}</h5>
+                                                                                {% else %}
+                                                                                    <h5>{{ reply.user }}</h5>
+                                                                                {% endif %}
+                                                                                <span>{{ reply.created }}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p>{{ reply.body }} </p>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </li>
+                                                            </li>
+
+
+                                                        {% endfor %}
                                                     </ul>
-                                                </li>
-                                            {% endfor %}
+                                                {% endif %}
+
+                                            </li>
                                         {% endif %}
                                     {% endfor %}
                                 </ul>
