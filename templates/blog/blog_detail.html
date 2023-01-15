@@ -26,9 +26,9 @@
                                     </div>
                                 </div>
                                 {% if blog.video %}
-                                    <div class="video_block" >
-                                        <video  width="80git add -a%" height="85%" controls preload="preload">
-                                            <source src="{{ blog.video.url}}" type="video/mp4" size="800x600"></source>
+                                    <div class="video_block">
+                                        <video width="80%" height="85%" controls preload="preload">
+                                            <source src="{{ blog.video.url }}" type="video/mp4" size="800x600"></source>
                                         </video>
                                     </div>
                                 {% endif %}
@@ -64,7 +64,9 @@
                                                                 <span>{{ comment.created }}</span>
                                                             </div>
                                                             {% if request.user.is_superuser %}
-                                                                <a href="javascript:;">پاسخ</a>
+                                                                <a href="#" class="comment-reply"
+                                                                   data-post-id="{{ blog.id }}"
+                                                                   data-comment-id="{{ comment.id }}">پاسخ</a>
                                                             {% endif %}
                                                         </div>
                                                         <p>{{ comment.body }}</p>
