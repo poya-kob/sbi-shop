@@ -2,16 +2,20 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 
 from blog.models import Blogs
+from gallery.models import Gallery
 from .models import Newsletter, Services
 from utils import grouper
 
 
 def home(request):
+    gallery = Gallery.objects.filter(is_active=True).order_by('-created')
+    grouped_gallery = list(grouper(gallery, 5))
     context = {
         'selected_blog': Blogs.objects.filter(selected_blog=True)[:2],
         'sliders': Blogs.objects.filter(show_on_slider=True),
         'last_blogs': Blogs.objects.get_active_blogs().order_by('modified_date')[:5],
-        'selected_services': Services.objects.filter(selected_service=True, is_active=True)[:4]
+        'selected_services': Services.objects.filter(selected_service=True, is_active=True)[:4],
+        'grouped_gallery': grouped_gallery
 
     }
     return render(request, 'home/index.html', context)

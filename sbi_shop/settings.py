@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     "blog",
     'contact_us',
     'categories',
-    'home'
+    'home',
     'gallery'
 ]
 

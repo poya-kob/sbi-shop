@@ -1,0 +1,48 @@
+{% load static %}
+<div class="clv_gallery_wrapper clv_section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6">
+                <div class="clv_heading white_heading">
+                    <h3>گالری ما</h3>
+                    <div class="clv_underline"><img src="{% static 'images/underline2.png' %}" alt="image"/></div>
+                    <p>در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ
+                        به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="gallery_slider">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            {% for gallery in grouped_gallery %}
+                                <div class="swiper-slide">
+                                    <div class="gallery_slide">
+                                        <div class="gallery_grid">
+                                            {% for image in gallery %}
+                                                <div class="gallery_grid_item">
+                                                    <div class="gallery_image">
+                                                        <img src="{{ image.image.url }}" alt="{{ image.title }}"/>
+                                                        <div class="gallery_overlay">
+                                                            <a href="{{ image.image.url }}"
+                                                               class="view_image"><span><i class="fa fa-search"
+                                                                                           aria-hidden="true"></i></span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
