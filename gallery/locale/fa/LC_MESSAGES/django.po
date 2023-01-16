@@ -17,35 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-#: contact_us/models.py:8
-msgid "first name"
-msgstr "نام"
-
-#: contact_us/models.py:9
-msgid "last name"
-msgstr "نام خانوادگی"
-
-#: contact_us/models.py:10
+#: gallery/models.py:8
 msgid "title"
 msgstr "عنوان"
 
-#: contact_us/models.py:11
-msgid "email"
-msgstr "ایمیل"
+#: gallery/models.py:9
+msgid "image"
+msgstr "عکس"
 
-#: contact_us/models.py:12
-msgid "body"
-msgstr "متن"
+#: gallery/models.py:11
+msgid "is active"
+msgstr "فعال/غیرفعال"
 
-#: contact_us/models.py:14
-msgid "is read"
-msgstr "خوانده شده /نشده"
-
-#: contact_us/models.py:20 contact_us/models.py:21
-msgid "contact us"
-msgstr "تماس باما"
-
-#: contact_us/views.py:19
-msgid "Thanks,your message have been send successfully!"
-msgstr "با تشکر, پیام شما با موفقیت ارسال شد."
+#: gallery/models.py:17 gallery/models.py:18
+msgid "gallery"
+msgstr "گالری"

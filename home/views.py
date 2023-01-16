@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 from blog.models import Blogs
 from gallery.models import Gallery
@@ -24,9 +25,9 @@ def home(request):
 def newsletter(request):
     try:
         Newsletter.objects.create(email=request.POST.get('email', None))
-        messages.success(request, 'email submitted successfully.')
+        messages.success(request, _('email submitted successfully.'))
     except Exception as error:
-        messages.error(request, 'submit email failed.')
+        messages.error(request, _('submit email failed.'))
 
     return redirect(request.POST.get('next', '/'))
 

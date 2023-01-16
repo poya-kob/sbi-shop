@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-16 17:53+0330\n"
+"POT-Creation-Date: 2023-01-16 19:28+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
 #: home/models.py:12
 msgid "title"
-msgstr ""
+msgstr "عنوان"
 
 #: home/models.py:13
 msgid "body"
-msgstr ""
+msgstr "متن اصلی"
 
 #: home/models.py:14
 msgid "image"
-msgstr ""
+msgstr "عکس"
 
 #: home/models.py:15
 msgid "video"
-msgstr ""
+msgstr "فیلم"
+
+#: home/models.py:16
+msgid "user"
+msgstr "کاربر"
+
+#: home/models.py:19 home/models.py:32
+msgid "is active"
+msgstr "فعال/غیرفعال"
+
+#: home/models.py:20
+msgid "selected servicer"
+msgstr "سرویس انتخاب شده"
+
+#: home/models.py:26 home/models.py:27
+msgid "service"
+msgstr "سرویس"
+
+#: home/models.py:31
+msgid "email"
+msgstr "ایمیل"
+
+#: home/models.py:38 home/models.py:39
+msgid "news letter"
+msgstr "خبرنامه "
+
+#: home/views.py:28
+msgid "email submitted successfully."
+msgstr "ایمل با موفقیت ثبت شد."
+
+#: home/views.py:30
+msgid "submit email failed."
+msgstr "ثبت ایمیل با مشکل مواجه شد. مجدد تلاش کنید."
