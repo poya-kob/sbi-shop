@@ -12,7 +12,7 @@ def home(request):
     gallery = Gallery.objects.filter(is_active=True).order_by('-created')
     grouped_gallery = list(grouper(gallery, 5))
     context = {
-        'selected_blog': Blogs.objects.filter(selected_blog=True)[:2],
+        'selected_blog': Blogs.objects.filter(selected_blog=True).order_by('-modified_date')[:2],
         'sliders': Blogs.objects.filter(show_on_slider=True),
         'last_blogs': Blogs.objects.get_active_blogs().order_by('modified_date')[:5],
         'selected_services': Services.objects.filter(selected_service=True, is_active=True)[:4],
