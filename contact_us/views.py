@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 from .forms import ContactForm
 from .models import ContactUs
@@ -14,7 +16,7 @@ def contact_us(request):
         text = contact_form.cleaned_data.get('text')
 
         ContactUs.objects.create(first_name=first_name, last_name=last_name, email=email, title=title, text=text)
-        # todo: show user success message
+        messages.success(request, _('Thanks,your message have been send successfully!'))
 
         contact_form = ContactForm()
     context = {

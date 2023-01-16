@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-16 19:11+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: contact_us/models.py:8
+msgid "first name"
+msgstr "نام"
+
+#: contact_us/models.py:9
+msgid "last name"
+msgstr "نام خانوادگی"
+
+#: contact_us/models.py:10
+msgid "title"
+msgstr "عنوان"
+
+#: contact_us/models.py:11
+msgid "email"
+msgstr "ایمیل"
+
+#: contact_us/models.py:12
+msgid "body"
+msgstr "متن"
+
+#: contact_us/models.py:14
+msgid "is read"
+msgstr "خوانده شده /نشده"
+
+#: contact_us/views.py:19
+msgid "Thanks,your message have been send successfully!"
+msgstr "با تشکر, پیام شما با موفقیت ارسال شد."
