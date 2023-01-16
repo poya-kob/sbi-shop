@@ -32,11 +32,11 @@ ALLOWED_HOSTS = []
 
 # Application definition
 MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-secondary',
-        messages.INFO: 'alert-info',
-        messages.SUCCESS: 'alert-success',
-        messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
+    messages.DEBUG: 'alert-secondary',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
 }
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'ckeditor',
     'django_jalali',
-
 
     # my app
     "blog",
@@ -121,6 +120,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
+LANGUAGES = [
+    ('fa', 'Persian'),
+    ('en', 'English'),
+]
 LANGUAGE_CODE = 'fa'
 
 TIME_ZONE = 'Iran'
