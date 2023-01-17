@@ -17,25 +17,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: service/apps.py:8
+msgid "service module"
+msgstr "ماژول سرویس"
 
-#: gallery/apps.py:8
-#, fuzzy
-#| msgid "gallery"
-msgid "gallery module"
-msgstr "ماژول گالری"
-
-#: gallery/models.py:8
+#: service/models.py:12
 msgid "title"
 msgstr "عنوان"
 
-#: gallery/models.py:9
+#: service/models.py:13
+msgid "body"
+msgstr "متن اصلی"
+
+#: service/models.py:14
 msgid "image"
 msgstr "عکس"
 
-#: gallery/models.py:11
-msgid "is active"
-msgstr "فعال/غیرفعال"
+#: service/models.py:15
+msgid "video"
+msgstr "فیلم"
 
-#: gallery/models.py:17 gallery/models.py:18
-msgid "gallery"
-msgstr "گالری"
+#: service/models.py:16
+msgid "user"
+msgstr "کاربر"
+
+#: service/models.py:19
+msgid "is active"
+msgstr "فعال / غیرقعال"
+
+#: service/models.py:20
+msgid "selected servicer"
+msgstr "سرویس منتخب"
+
+#: service/models.py:26 service/models.py:27
+msgid "service"
+msgstr "سرویس"

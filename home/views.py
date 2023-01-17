@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
 from blog.models import Blogs
 from gallery.models import Gallery
-from .models import Newsletter, Services
+from service.models import Services
+from .models import Newsletter
 from utils import grouper
 
 
@@ -32,23 +33,3 @@ def newsletter(request):
     return redirect(request.POST.get('next', '/'))
 
 
-def services_list(request):
-    services = Services.objects.filter(is_active=True)
-    grouped_services = list(grouper(services, 3))
-    context = {
-        'grouped_services': grouped_services,
-        'title': 'لیست خدمات'
-    }
-    return render(request, 'home/service_list.html', context)
-
-
-def services_detail(request, sid: int):
-    context = {
-        'service': Services.objects.get(id=sid, is_active=True),
-        'title': 'جزییات خدمت'
-
-    }
-    if context['service']:
-        return render(request, 'home/service_detail.html', context)
-    else:
-        return redirect(reverse('service_list'))
