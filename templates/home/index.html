@@ -349,7 +349,8 @@
                                     <div class="col-md-6">
                                         <div class="service_block">
                                             <span></span>
-                                            <div class="service_icon"><img src="{{ service.image.url }}" alt="image"/>
+                                            <div class="service_icon"><img src="{{ service.image.url }}" height="50"
+                                                                           width="90" alt="image"/>
                                             </div>
                                             <a href="{% url 'service_detail' sid=service.id %}">
                                                 <h4>{{ service.title }}</h4></a>
@@ -369,6 +370,8 @@
                             </div>
                         </div>
                     </div>
+                    <a href="{% url "service_list" %}" class="clv_btn">لیست خدمات</a>
+
                 </div>
             </div>
         </div>

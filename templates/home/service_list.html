@@ -38,13 +38,17 @@
                         {% for service in groupe %}
                             <div class="col-md-4">
                                 <div class="service2_block">
-                                    <div class="service2_image"><img src="images/garden_service4.png" alt="image"/>
-                                    </div>
+                                    <a href="{% url 'service_detail' sid=service.id %}">
+                                        <div class="service2_image">
+                                            <img src="{{ service.image.url }}" alt="image"/>
+                                        </div>
+                                    </a>
                                     <div class="service2_content">
-                                        <h3>قطع درخت</h3>
-                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                                            طراحان
-                                            گرافیک است.</p>
+                                        <a href="{% url 'service_detail' sid=service.id %}">
+                                            <h3>{{ service.title }}</h3></a>
+                                        <a href="{% url 'service_detail' sid=service.id %}">
+                                            <p>{{ service.body|safe|slice:250 }}... </p>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
