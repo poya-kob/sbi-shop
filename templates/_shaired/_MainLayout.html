@@ -3,7 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>{{ setting.site_title }}</title>
+    {% endif %}
     {% include '_shaired/_HeaderRefrences.html' %}
 </head>
 <body class="rtl">

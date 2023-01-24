@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'categories',
     'home',
     'gallery',
-    'service'
+    'service',
+    'setting',
 ]
 
 CKEDITOR_UPLOAD_PATH = "ckeditor_uploads"
@@ -83,6 +84,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'setting.context_processors.setting'
             ],
         },
     },
