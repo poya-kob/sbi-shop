@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'gallery',
     'service',
     'setting',
+    'account',
 ]
 
 CKEDITOR_UPLOAD_PATH = "ckeditor_uploads"

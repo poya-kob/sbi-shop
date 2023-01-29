@@ -101,7 +101,7 @@
                                 <li><a href="{% url 'blogs' %}">بلاگ</a></li>
                                 <li><a href="{% url 'contact' %}">تماس با ما</a></li>
                                 {% if request.user.is_authenticated %}
-                                    <li><a href="{% url 'contact' %}">خروج</a></li>
+                                    <li><a href="{% url 'logout_user' %}">خروج</a></li>
                                 {% endif %}
                                 {% if request.user.is_superuser %}
                                     <li><a href="/admin">پنل مدیریت</a></li>

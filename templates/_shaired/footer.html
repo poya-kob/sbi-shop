@@ -43,7 +43,7 @@
                         <h4>اینستاگرام</h4>
                         <img src="{% static 'images/footer_underline.png' %}" alt="image"/>
                     </div>
-                   <p>@{{ setting.instagram_id }}</p>
+                    <p>@{{ setting.instagram_id }}</p>
                 </div>
             </div>
             <div class="col-md-3 col-lg-3">
@@ -269,5 +269,7 @@
         </div>
     </div>
 </div>
-<!--Profile Toggle-->
-<div class="profile_toggle"><a href="javascript:;"><img src="{% static 'images/login.gif' %}" alt=""></a></div>
+{% if not request.user.is_authenticated %}
+    <!--Profile Toggle-->
+    <div class="profile_toggle"><a href="javascript:;"><img src="{% static 'images/login.gif' %}" alt=""></a></div>
+{% endif %}
