@@ -155,15 +155,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 if DEBUG:
-    STATICFILES_DIRS = [(
-            BASE_DIR / 'static/')
-    ]
+    STATICFILES_DIRS = [(BASE_DIR / 'static/')]
     MEDIA_ROOT = os.path.join(BASE_DIR, "static_cdn", "media_root")
 
 else:
-    STATIC_ROOT = "/home/smartsbi/public_html//static"
+    STATIC_ROOT = "/home/smartsbi/public_html/static"
     # STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn", "static_root")
-    MEDIA_ROOT = "/home/smartsbi/public_html//media"
+    MEDIA_ROOT = "/home/smartsbi/public_html/media"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
